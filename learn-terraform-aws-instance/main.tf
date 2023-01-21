@@ -11,13 +11,15 @@ terraform {
 
 provider "aws" {
   region  = "ap-northeast-2"
+  profile = "learning-terraform"
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0c76973fbe0ee100c"
+  ami           = "ami-035233c9da2fabf52"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    # Name = "ExampleAppServerInstance"
+    Name = var.instance_name
   }
 }
